@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        #mobile-menu {
+            transition: all 0.5s ease-in-out;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <nav class="md:flex justify-between h-16 items-center px-5">
+        <div class="text-3xl p-5"><a href="#" class="text-3xl">Tailwind<span class="text-blue-900">LOGO</span></a></div>
+        <div class="hidden md:flex">
+            <a href="#" class="text-xl px-4 hover:text-gray-500 transition mr-3">Home</a>
+            <a href="#" class="text-xl px-4 hover:text-gray-500 transition mr-3">About</a>
+            <a href="#" class="text-xl px-4 hover:text-gray-500 transition mr-3">Blog</a>
+            <a href="#" class="text-xl px-4 hover:text-gray-500 transition mr-3">Contact</a>
+            <a href="#" class="w-28 h-10 md:hover:bg-emerald-700 transition cursor-pointer text-xl text-center px-4 bg-green-600 py-2 text-white rounded mr-5">Login</a>
+        </div>
+        <div class="md:hidden absolute top-4 right-4">
+            <button id="menu-btn" class="focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="flex flex-col items-center absolute top-16 right-0 left-0 bg-white shadow-md z-50">
+        <a href="#" class="block text-xl px-4 py-2 hover:text-gray-500 transition">Home</a>
+        <a href="#" class="block text-xl px-4 py-2 hover:text-gray-500 transition">About</a>
+        <a href="#" class="block text-xl px-4 py-2 hover:text-gray-500 transition">Blog</a>
+        <a href="#" class="block text-xl px-4 py-2 hover:text-gray-500 transition">Contact</a>
+        <a href="#" class="block text-xl px-4 py-2 bg-green-600 text-white rounded text-center">Login</a>
+    </div>
+
+    <header class="flex flex-col lg:flex-row justify-between items-center lg:px-28 px-5 py-10">
+        <div class="w-full lg:w-2/5 animate__animated animate__jackInTheBox">
+            <h1 class="text-4xl lg:text-5xl font-bold">Welcome to <span class="text-green-600">Tailwind CSS</span> Website</h1>
+            <p class="mt-4 text-lg">I’ve written a few thousand words on why traditional ‘semantic class names’ are the reason CSS is hard to maintain, but the truth is you’re never going</p>
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
+                <button class="bg-green-600 px-4 py-2 text-white rounded mb-2 sm:mb-0 sm:mr-2">Subscribe</button>
+                <button class="bg-gray-300 px-4 py-2 rounded">Connect with us!</button>
+            </div>
+            <div class="mt-4 flex space-x-4">
+                <i class="fa-brands fa-facebook text-blue-900 text-3xl"></i>
+                <i class="fa-brands fa-twitter text-blue-500 text-3xl"></i>
+                <i class="fa-brands fa-google-plus text-orange-600 text-3xl"></i>
+            </div>
+        </div>
+        <div class="w-full lg:w-3/5 mt-10 lg:mt-0 animate__animated animate__fadeIn animate__delay-1s">
+            <div class="w-full h-[300px] sm:h-[400px] lg:h-[500px] bg-cover bg-center rounded-2xl border border-blue-500" style="background-image: url('fe3811748c41b542853029dd91209821.png');"></div>
+        </div>
+    </header>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
